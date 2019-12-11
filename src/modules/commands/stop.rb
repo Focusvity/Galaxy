@@ -8,7 +8,7 @@ module Bot::DiscordCommands
 
       event.channel.send_embed do |embed|
         embed.description = 'Goodbye cruel world'
-        embed.footer = Discordrb::Webhooks::EmbedFooter.new(text: "Requested by #{event.user.name}##{event.user.discrim}", icon_url: "")
+        embed.footer = Discordrb::Webhooks::EmbedFooter.new(text: "Requested by #{event.user.name}##{event.user.discrim}", icon_url: '')
         embed.color = 16722454
       end
 

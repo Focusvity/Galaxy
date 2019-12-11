@@ -34,6 +34,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
+    urban_dict (0.0.2)
     websocket (1.2.8)
     websocket-client-simple (0.3.0)
       event_emitter
@@ -45,6 +46,7 @@ PLATFORMS
 DEPENDENCIES
   discordrb
   dotenv
+  urban_dict
 
 BUNDLED WITH
    1.17.3

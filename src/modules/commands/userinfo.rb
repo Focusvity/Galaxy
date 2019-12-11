@@ -13,20 +13,18 @@ module Bot::DiscordCommands
       playing = user.game
       playing = 'Nothing' if playing.nil?
       status = user.status.to_s
-      user_joined_at = user.joined_at.to_s.dup
-      user_creation_time = user.creation_time.to_s.dup
       event.channel.send_embed do |embed|
         embed.title = 'User Information'
         desc = "**Name#Discrim and ID:** #{user.name}##{user.discrim}, #{user.id}
 **Currently Playing:** #{playing}
 **Status:** #{status}"
         unless event.channel.private?
-          desc += "\n**Joined at:** #{user_joined_at}"
+          desc += "\n**Joined at:** #{user.joined_at}"
           desc << "\n**Nickname:** #{user.nick}" unless user.nick.nil?
-          roles = user.roles.dup
+          roles = user.roles
           desc += "\n**Role(s):** #{roles.empty? ? 'No assigned roles' : roles.map(&:name).join(', ')}"
         end
-        desc += "\n**Creation time:** #{user_creation_time}"
+        desc += "\n**Creation time:** #{user.creation_time}"
         embed.description = desc
         embed.thumbnail = Discordrb::Webhooks::EmbedImage.new(url: user.avatar_url.to_s)
         if status == 'online'
