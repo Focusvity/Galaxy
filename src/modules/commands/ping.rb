@@ -6,7 +6,7 @@ module Bot::DiscordCommands
     extend Discordrb::Commands::CommandContainer
     command(:ping) do |event|
       m = event.respond 'Pinging...'
-      m.edit "Pong! Time taken: #{Time.now - event.timestamp} seconds."
+      m.edit "Pong! Time taken: #{(Time.now - event.timestamp).round(1)} seconds."
     end
   end
 end
