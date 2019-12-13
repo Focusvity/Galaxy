@@ -9,6 +9,7 @@ module Bot::DiscordCommands
         embed.color = 4165563
         desc = "**Server count:** #{event.bot.servers.count}
 **Total unique users:** #{event.bot.users.count}
+**Language:** Ruby
 **Source code:** https://github.com/Focusvity/Galaxy"
         embed.description = desc
         embed.footer = Discordrb::Webhooks::EmbedFooter.new(text: 'Created by Fleek#0036', icon_url: '')
