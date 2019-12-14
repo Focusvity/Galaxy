@@ -3,13 +3,13 @@
 module Bot::DiscordCommands
   module UserInfo
     extend Discordrb::Commands::CommandContainer
-    command(%i[userinfo ui], max_args: 0) do |event|
-      user = event.user
-      # user = if args.length == 1
-      #         event.message.mentions[0] # Get the first mentioned user
-      #       else
-      #         event.user
-      #       end
+    command(%i[userinfo ui], max_args: 1) do |event, *args|
+      # user = event.user
+      user = if args.length == 1
+               event.message.mentions[0].on(event.server) # Get the first mentioned user
+             else
+               event.user
+             end
       playing = user.game
       playing = 'Nothing' if playing.nil?
       status = user.status.to_s
