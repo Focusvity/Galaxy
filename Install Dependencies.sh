@@ -11,3 +11,4 @@ if [ ! $(gem query -i -n bundler) ]; then
 fi
 
 bundle install
+echo "Done! Be sure to run the bot with 'bash run.sh'"
